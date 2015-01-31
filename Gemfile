@@ -46,3 +46,4 @@ group :development, :test do
     gem 'railroady'
 end
 gem 'inflections'
+gem 'simple_form'
