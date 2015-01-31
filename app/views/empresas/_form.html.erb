@@ -1,25 +1,10 @@
-<%= form_for(@empresa) do |f| %>
-  <% if @empresa.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@empresa.errors.count, "error") %> prohibited this empresa from being saved:</h2>
+<%= simple_form_for @empresa, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :name %>
+  <%= error_span(@empresa[:name]) %>
+  <%= f.input :nivel %>
+  <%= error_span(@empresa[:nivel]) %>
 
-      <ul>
-      <% @empresa.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :nivel %><br>
-    <%= f.text_field :nivel %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.button :submit, :class => 'btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                empresas_path, :class => 'btn btn-default' %>
 <% end %>
