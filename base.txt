@@ -1,0 +1,67 @@
+Roles 
+	id
+	name
+
+Empresa 
+	id
+	name
+	nivel
+
+Area
+	id
+	name
+	empresa_id
+	
+Empleados
+	id
+	nombres
+	apellidos
+	codigo
+	empresa_id
+	area_id
+	
+Usuario 
+	id
+	nombre
+	apellido
+	codigo
+	nombre
+	apellidos
+	empresa_id
+
+Categorias
+	id
+	name
+	area_id
+
+Subcategorias
+	id
+	name
+	categoria_id
+
+Ticket
+	id
+	asunto
+	urgencia
+	empresa_id
+	area_id
+	categoria_id
+	subcategoria_id
+	cliente_id
+	empleado_id
+
+Comentarios
+	id
+	comentario
+	ticket_id
+	empleado_id
+
+rails generate scaffold role name:string
+rails generate scaffold empresa name:string nivel:string
+rails generate scaffold area name:string empresa:belongs_to
+rails generate scaffold empleado nombres:string apellidos:string codigo:string empresa:belongs_to area:belongs_to
+rails generate scaffold usuario nombres:string apellidos:string codigo:string empresa:belongs_to
+rails generate scaffold categoria name:string area:belongs_to
+rails generate scaffold subcategoria name:string categoria:belongs_to
+rails generate scaffold ticket asunto:string urgencia:integer empresa:belongs_to usuario:belongs_to empleado:belongs_to categoria:belongs_to subcategoria:belongs_to area:belongs_to
+rails generate scaffold comentario comentario:string ticket:belongs_to empleado:belongs_to
