@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Usuarios</h1>
+<h1>Lista de Usuarios</h1>
 
 <table>
   <thead>
@@ -20,9 +20,9 @@
         <td><%= usuario.apellidos %></td>
         <td><%= usuario.codigo %></td>
         <td><%= usuario.empresa %></td>
-        <td><%= link_to 'Show', usuario %></td>
-        <td><%= link_to 'Edit', edit_usuario_path(usuario) %></td>
-        <td><%= link_to 'Destroy', usuario, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Mostrar', usuario %></td>
+        <td><%= link_to 'Editar', edit_usuario_path(usuario) %></td>
+        <td><%= link_to 'Eliminar', usuario, method: :delete, data: { confirm: 'Estás seguro?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +30,8 @@
 
 <br>
 
-<%= link_to 'New Usuario', new_usuario_path %>
+<%#= link_to 'Nuevo Usuario', new_usuario_path %>
+
+<%= link_to t('.Nuevo Usuario', :default => t("helpers.links.new")),
+            new_usuario_path,
+            :class => 'btn btn-primary' %>

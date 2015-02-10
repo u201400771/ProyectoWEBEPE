@@ -1,4 +1,8 @@
-<%= form_for(@usuario) do |f| %>
+<div id="menu"></menu>
+
+<%= simple_form_for @usuario, :html => { :class => 'form-horizontal' } do |f| %>
+
+
   <% if @usuario.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@usuario.errors.count, "error") %> prohibited this usuario from being saved:</h2>
@@ -10,23 +14,24 @@
       </ul>
     </div>
   <% end %>
+  
+  <%= f.input :nombres %>
+  <%= error_span(@usuario[:nombres]) %>
 
-  <div class="field">
-    <%= f.label :nombres %><br>
-    <%= f.text_field :nombres %>
+  <%= f.input :apellidos %>
+  <%= error_span(@usuario[:apellidos]) %>
+
+  <%= f.input :codigo %>
+  <%= error_span(@usuario[:codigo]) %>
+
+  <!--
+  <div class="form-group">
+  <%= f.label :empresa_id %>
+  <%= f.collection_select :empresa_id, Empresa.all, :id, :name, {prompt: "Select a Empresa"}, {class: "form-control"} %>
+  <%= error_span(@usuario[:empresa_id]) %>
   </div>
-  <div class="field">
-    <%= f.label :apellidos %><br>
-    <%= f.text_field :apellidos %>
-  </div>
-  <div class="field">
-    <%= f.label :codigo %><br>
-    <%= f.text_field :codigo %>
-  </div>
-  <div class="field">
-    <%= f.label :empresa_id %><br>
-    <%= f.collection_select(:empresa_id, Empresa.all, :id, :name) %>
-  </div>
+  --!>
+
   <div class="actions">
     <%= f.submit %>
   </div>
