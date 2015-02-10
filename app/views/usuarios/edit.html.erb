@@ -1,6 +1,19 @@
-<h1>Editing Usuario</h1>
+<h1>Editar Usuario</h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @usuario %> |
-<%= link_to 'Back', usuarios_path %>
+<%#= link_to 'Mostrar', @usuario %> 
+<%#= link_to 'Atrás', usuarios_path %>
+
+<%#= link_to t('.Mostrar', :default => t("helpers.links.show")),
+            @usuario,
+            :class => 'btn btn-primary' %>
+
+<%#= link_to t('.Atrás', :default => t("helpers.links.back")),
+            new_usuario_path,
+            :class => 'btn btn-primary' %>
+
+<div class="btn-group" role="group" aria-label="...">
+  <button type="button" class="btn btn-default"><%= link_to 'Mostrar', @usuario %> </button>
+  <button type="button" class="btn btn-default"><%= link_to 'Atrás', usuarios_path %></button>
+</div>
