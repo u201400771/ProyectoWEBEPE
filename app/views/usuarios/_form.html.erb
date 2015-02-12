@@ -14,15 +14,24 @@
       </ul>
     </div>
   <% end %>
-  
-  <%= f.input :nombres %>
-  <%= error_span(@usuario[:nombres]) %>
-
-  <%= f.input :apellidos %>
-  <%= error_span(@usuario[:apellidos]) %>
 
   <%= f.input :codigo %>
   <%= error_span(@usuario[:codigo]) %>
+
+  <%= f.input :apellido_paterno %>
+  <%= error_span(@usuario[:apellido_paterno]) %>
+
+  <%= f.input :apellido_materno %>
+  <%= error_span(@usuario[:apellido_materno]) %>
+
+  <%= f.input :primer_nombre %>
+  <%= error_span(@usuario[:primer_nombre]) %>
+
+  <%= f.input :segundo_nombre %>
+  <%= error_span(@usuario[:segundo_nombre]) %>
+
+  <%= f.input :cod_rol %>
+  <%= error_span(@usuario[:cod_rol]) %>
 
   <!--
   <div class="form-group">
