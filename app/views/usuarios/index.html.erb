@@ -20,26 +20,22 @@
   
   <thead>
     <tr>
+      <th></th>
       <th><%= model_class.human_attribute_name(:codigo) %></th>
       <th><%= model_class.human_attribute_name(:apellido_paterno) %></th>
       <th><%= model_class.human_attribute_name(:apellido_materno) %></th>
       <th><%= model_class.human_attribute_name(:primer_nombre) %></th>
-      <th><%= model_class.human_attribute_name(:segundo_nombre) %></th>
-      <th><%= model_class.human_attribute_name(:cod_rol) %></th>
-      <th><%= model_class.human_attribute_name(:empresa) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
   <tbody>
     <% @usuarios.each do |usuario| %>
       <tr>
+        <td><%= usuario.id %></td>
         <td><%= usuario.codigo %></td>
         <td><%= usuario.apellido_paterno %></td>
         <td><%= usuario.apellido_materno %></td>
         <td><%= usuario.primer_nombre %></td>
-        <td><%= usuario.segundo_nombre %></td>
-        <td><%= usuario.cod_rol %></td>
-        <td><%= usuario.empresa %></td>
         <!--<td><%#= link_to 'Mostrar', usuario %></td> 
         <td><%#= link_to 'Editar', edit_usuario_path(usuario) %></td>
         <td><%#= link_to 'Eliminar', usuario, method: :delete, data: { confirm: 'Estás seguro?' } %></td> !-->

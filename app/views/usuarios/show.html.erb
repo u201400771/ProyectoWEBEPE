@@ -28,13 +28,9 @@
 
 <p>
   <strong>Rol:</strong>
-  <%= @usuario.cod_rol %>
+  <%= @usuario.role.name %>
 </p>
 
-<p>
-  <strong>Empresa:</strong>
-  <%= @usuario.empresa %>
-</p>
 
 <%#= link_to 'Editar', edit_usuario_path(@usuario) %> 
 <%#= link_to 'Atrás', usuarios_path %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150211055824) do
+ActiveRecord::Schema.define(version: 20150212023417) do
 
   create_table "areas", force: :cascade do |t|
     t.string   "name"
@@ -121,7 +121,7 @@ ActiveRecord::Schema.define(version: 20150211055824) do
     t.string   "apellido_materno"
     t.string   "primer_nombre"
     t.string   "segundo_nombre"
-    t.string   "cod_rol"
+    t.string   "role_id"
   end
 
   add_index "usuarios", ["empresa_id"], name: "index_usuarios_on_empresa_id"
