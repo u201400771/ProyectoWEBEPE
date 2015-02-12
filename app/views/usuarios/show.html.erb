@@ -1,24 +1,36 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Nombres:</strong>
-  <%= @usuario.nombres %>
-</p>
-
-<p>
-  <strong>Apellidos:</strong>
-  <%= @usuario.apellidos %>
-</p>
-
-<p>
-  <strong>Codigo:</strong>
+  <strong>Código:</strong>
   <%= @usuario.codigo %>
 </p>
 
 <p>
-  <strong>Empresa:</strong>
-  <%= @usuario.empresa %>
+  <strong>Apellidos Paterno:</strong>
+  <%= @usuario.apellido_paterno %>
 </p>
+
+
+<p>
+  <strong>Apellidos Materno:</strong>
+  <%= @usuario.apellido_materno %>
+</p>
+
+<p>
+  <strong>Primer Nombre:</strong>
+  <%= @usuario.primer_nombre %>
+</p>
+
+<p>
+  <strong>Segundo Nombre:</strong>
+  <%= @usuario.segundo_nombre %>
+</p>
+
+<p>
+  <strong>Rol:</strong>
+  <%= @usuario.role.name %>
+</p>
+
 
 <%#= link_to 'Editar', edit_usuario_path(@usuario) %> 
 <%#= link_to 'Atrás', usuarios_path %>

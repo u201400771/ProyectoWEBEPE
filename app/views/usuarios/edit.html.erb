@@ -1,6 +1,6 @@
-<h1>Editar Usuario</h1>
+<!--<h1>Editar Usuario</h1>
 
-<%= render 'form' %>
+<%#= render 'form' %>
 
 <%#= link_to 'Mostrar', @usuario %> 
 <%#= link_to 'Atrás', usuarios_path %>
@@ -14,6 +14,13 @@
             :class => 'btn btn-primary' %>
 
 <div class="btn-group" role="group" aria-label="...">
-  <button type="button" class="btn btn-default"><%= link_to 'Mostrar', @usuario %> </button>
-  <button type="button" class="btn btn-default"><%= link_to 'Atrás', usuarios_path %></button>
+  <button type="button" class="btn btn-default"><%#= link_to 'Mostrar', @usuario %> </button>
+  <button type="button" class="btn btn-default"><%#= link_to 'Atrás', usuarios_path %></button>
 </div>
+--!>
+
+
+<%#= render 'form' %>
+
+
+<%= render :partial => 'form' %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150130230951) do
+ActiveRecord::Schema.define(version: 20150212023417) do
 
   create_table "areas", force: :cascade do |t|
     t.string   "name"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 20150130230951) do
     t.integer  "area_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean  "estado"
   end
 
   add_index "categorias", ["area_id"], name: "index_categorias_on_area_id"
@@ -80,13 +81,14 @@ ActiveRecord::Schema.define(version: 20150130230951) do
     t.integer  "categoria_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.boolean  "estado"
   end
 
   add_index "subcategorias", ["categoria_id"], name: "index_subcategorias_on_categoria_id"
 
   create_table "tickets", force: :cascade do |t|
     t.string   "asunto"
-    t.integer  "urgencia"
+    t.integer  "prioridad"
     t.integer  "empresa_id"
     t.integer  "usuario_id"
     t.integer  "empleado_id"
@@ -95,6 +97,9 @@ ActiveRecord::Schema.define(version: 20150130230951) do
     t.integer  "area_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.decimal  "tipo"
+    t.string   "codigo"
+    t.decimal  "estado"
   end
 
   add_index "tickets", ["area_id"], name: "index_tickets_on_area_id"
@@ -109,8 +114,14 @@ ActiveRecord::Schema.define(version: 20150130230951) do
     t.string   "apellidos"
     t.string   "codigo"
     t.integer  "empresa_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.string   "email"
+    t.string   "apellido_paterno"
+    t.string   "apellido_materno"
+    t.string   "primer_nombre"
+    t.string   "segundo_nombre"
+    t.string   "role_id"
   end
 
   add_index "usuarios", ["empresa_id"], name: "index_usuarios_on_empresa_id"
