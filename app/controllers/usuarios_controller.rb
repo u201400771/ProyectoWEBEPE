@@ -5,6 +5,7 @@ class UsuariosController < ApplicationController
   # GET /usuarios.json
   def index
     @usuarios = Usuario.all
+    @menu = "menu1"
   end
 
   # GET /usuarios/1
