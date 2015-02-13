@@ -9,7 +9,7 @@ class UsuariosController < ApplicationController
   # GET /usuarios.json
   def index
     @usuarios = Usuario.all
-    @menu = "menu1"
+    @menu = "menu2"
   end
 
   # GET /usuarios/1
@@ -26,7 +26,7 @@ class UsuariosController < ApplicationController
 
   # GET /usuarios/1/edit
   def edit
-    @menu = "menu1"    
+    @menu = "menu2"    
   end
 
   # POST /usuarios

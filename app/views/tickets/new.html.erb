@@ -12,7 +12,21 @@
       </ul>
     </div>
   <% end %>
-
+  
+  <div class="field">
+    <%= f.label :area_id, "Unidad de Negocio" %><br>
+    <%= f.collection_select(:area_id, Area.all, :id, :name) %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :categoria_id %><br>
+    <%= f.collection_select(:categoria_id, Categoria.all, :id, :name) %>
+  </div>
+  <div class="field">
+    <%= f.label :subcategoria_id %><br>
+    <%= f.collection_select(:subcategoria_id, Subcategoria.all, :id, :name) %>
+  </div>
+  
   <div class="field">
     <%= f.label :asunto %><br>
     <%= f.text_field :asunto %>
@@ -26,10 +40,7 @@
     <%= f.label :subcategoria_id %><br>
     <%= f.collection_select(:subcategoria_id, Subcategoria.all, :id, :name) %>
   </div>
-  <div class="field">
-    <%= f.label :area_id %><br>
-    <%= f.collection_select(:area_id, Area.all, :id, :name) %>
-  </div>
+  
   <div class="actions">
     <%= f.submit %>
   </div>

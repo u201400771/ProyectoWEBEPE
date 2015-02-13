@@ -5,6 +5,7 @@ class RolesController < ApplicationController
   # GET /roles.json
   def index
     @roles = Role.all
+    @menu = "menu2"
   end
 
   # GET /roles/1
@@ -15,6 +16,7 @@ class RolesController < ApplicationController
   # GET /roles/new
   def new
     @role = Role.new
+    @menu = "menu2"
   end
 
   # GET /roles/1/edit
