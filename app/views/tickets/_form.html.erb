@@ -18,19 +18,7 @@
   <div class="field">
     <%= f.label :prioridad %><br>
     <%= f.number_field :prioridad %>
-  </div>
-  <div class="field">
-    <%= f.label :empresa_id %><br>
-    <%= f.collection_select(:empresa_id, Empresa.all, :id, :name) %>
-  </div>
-  <div class="field">
-    <%= f.label :usuario_id %><br>
-    <%= f.collection_select(:usuario_id, Usuario.all, :id, :nombres) %>
-  </div>
-  <div class="field">
-    <%= f.label :empleado_id %><br>
-    <%= f.collection_select(:empleado_id, Empleado.all, :id, :nombres) %>
-  </div>
+
   <div class="field">
     <%= f.label :categoria_id %><br>
     <%= f.collection_select(:categoria_id, Categoria.all, :id, :name) %>

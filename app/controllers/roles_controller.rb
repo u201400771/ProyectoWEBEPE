@@ -5,24 +5,24 @@ class RolesController < ApplicationController
   # GET /roles.json
   def index
     @roles = Role.all
-    @menu = "menu1"
+    @menu = "menu2"
   end
 
   # GET /roles/1
   # GET /roles/1.json
   def show
-    @menu = "menu1"
+    @menu = "menu2"
   end
 
   # GET /roles/new
   def new
     @role = Role.new
-    @menu = "menu1"
+    @menu = "menu2"
   end
 
   # GET /roles/1/edit
   def edit
-    @menu = "menu1"
+    @menu = "menu2"
   end
 
   # POST /roles
