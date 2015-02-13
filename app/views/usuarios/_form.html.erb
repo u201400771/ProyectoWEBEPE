@@ -30,16 +30,18 @@
   <%= f.input :segundo_nombre %>
   <%= error_span(@usuario[:segundo_nombre]) %>
 
-  <%= f.input :cod_rol %>
-  <%= error_span(@usuario[:cod_rol]) %>
+  <div class="form-group"> 
+  <%= f.label :role_id %>
+  <%= f.collection_select :role_id, Role.all, :id, :name, {prompt: "Select a Role"}, {class: "form-control"} %>
+  <%= error_span(@usuario[:role_id]) %>
+  </div>  
 
-  <!--
-  <div class="form-group">
-  <%= f.label :empresa_id %>
-  <%= f.collection_select :empresa_id, Empresa.all, :id, :name, {prompt: "Select a Empresa"}, {class: "form-control"} %>
-  <%= error_span(@usuario[:empresa_id]) %>
-  </div>
-  --!>
+<!--  <div class="form-group"> !-->
+  <%#= f.label :empresa_id %>
+  <%#= f.collection_select :empresa_id, Empresa.all, :id, :name, {prompt: "Select a Empresa"}, {class: "form-control"} %>
+  <%#= error_span(@usuario[:empresa_id]) %>
+<!--    </div>  !-->
+
 
   <div class="actions">
     <%= f.submit %>
