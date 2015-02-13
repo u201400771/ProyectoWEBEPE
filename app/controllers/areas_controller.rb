@@ -5,7 +5,7 @@ class AreasController < ApplicationController
   # GET /areas.json
   def index
     @areas = Area.all
-    @menu = "menu1"  
+    @menu = "menu2"
   end
 
   # GET /areas/1
@@ -17,12 +17,12 @@ class AreasController < ApplicationController
   # GET /areas/new
   def new
     @area = Area.new
-    @menu = "menu1"  
+    @menu = "menu2"
   end
 
   # GET /areas/1/edit
   def edit
-    @menu = "menu1"  
+    @menu = "menu2"
   end
 
   # POST /areas
