@@ -5,6 +5,7 @@ class TicketsController < ApplicationController
   # GET /tickets.json
   def index
     @tickets = Ticket.all
+    @menu = "menu1"
   end
 
   # GET /tickets/1
@@ -15,10 +16,12 @@ class TicketsController < ApplicationController
   # GET /tickets/new
   def new
     @ticket = Ticket.new
+    @menu = "menu1"
   end
 
   # GET /tickets/1/edit
   def edit
+    @menu = "menu1"
   end
 
   # POST /tickets
