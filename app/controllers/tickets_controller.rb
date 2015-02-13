@@ -5,25 +5,32 @@ class TicketsController < ApplicationController
   # GET /tickets.json
   def index
     @tickets = Ticket.all
+    @menu = "menu1"
   end
 
   # GET /tickets/1
   # GET /tickets/1.json
   def show
+    @menu = "menu1"
   end
 
   # GET /tickets/new
   def new
     @ticket = Ticket.new
-  end
-
-  # GET /tickets/1/edit
-  def edit
+    @menu = "menu1"
+    #@prioridades = [1 => ]
   end
 
   # POST /tickets
   # POST /tickets.json
   def create
+    
+    params[:usuario_id] = 1 #MI USUARIO
+    params[:empresa_id] = 1 #EMPRESA OXICODE
+    params[:estado] = 1 #EMPRESA OXICODE
+    params[:empleado_id] = null #SIN EMPLEADO POR DEFECTO
+    
+    
     @ticket = Ticket.new(ticket_params)
 
     respond_to do |format|
@@ -69,6 +76,6 @@ class TicketsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def ticket_params
-      params.require(:ticket).permit(:asunto, :urgencia, :empresa_id, :cliente_id, :empleado_id, :categoria_id, :subcategoria_id, :area_id)
+      params.require(:ticket).permit(:asunto, :prioridad, :empresa_id, :usuario_id, :empleado_id, :categoria_id, :subcategoria_id, :area_id)
     end
 end

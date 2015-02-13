@@ -1,5 +1,39 @@
-<h1>New Ticket</h1>
+<h1>Nueva Incidencia</h1>
 
-<%= render 'form' %>
+<%= form_for(@ticket) do |f| %>
+  <% if @ticket.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@ticket.errors.count, "error") %> prohibited this ticket from being saved:</h2>
+
+      <ul>
+      <% @ticket.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :asunto %><br>
+    <%= f.text_field :asunto %>
+  </div>
+
+  <div class="field">
+    <%= f.label :categoria_id %><br>
+    <%= f.collection_select(:categoria_id, Categoria.all, :id, :name) %>
+  </div>
+  <div class="field">
+    <%= f.label :subcategoria_id %><br>
+    <%= f.collection_select(:subcategoria_id, Subcategoria.all, :id, :name) %>
+  </div>
+  <div class="field">
+    <%= f.label :area_id %><br>
+    <%= f.collection_select(:area_id, Area.all, :id, :name) %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
 
 <%= link_to 'Back', tickets_path %>

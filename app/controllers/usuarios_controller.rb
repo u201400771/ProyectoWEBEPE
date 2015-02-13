@@ -1,6 +1,10 @@
 class UsuariosController < ApplicationController
   before_action :set_usuario, only: [:show, :edit, :update, :destroy]
 
+  def login 
+    render layout: "login"
+  end
+
   # GET /usuarios
   # GET /usuarios.json
   def index
@@ -31,6 +35,7 @@ class UsuariosController < ApplicationController
     @usuario = Usuario.new(usuario_params)
 
     respond_to do |format|
+      
       if @usuario.save
         format.html { redirect_to @usuario, notice: 'Usuario was successfully created.' }
         format.json { render :show, status: :created, location: @usuario }
