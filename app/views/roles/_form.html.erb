@@ -1,5 +1,5 @@
 <%= simple_form_for @role, :html => { :class => 'form-horizontal' } do |f| %>
-  <%= f.input :name %>
+  <%= f.input :name, :label => "Nombre" %>
   <%= error_span(@role[:name]) %>
 
   <%= f.button :submit, :class => 'btn-primary' %>

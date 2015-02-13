@@ -11,12 +11,14 @@ class TicketsController < ApplicationController
   # GET /tickets/1
   # GET /tickets/1.json
   def show
+    @menu = "menu1"
   end
 
   # GET /tickets/new
   def new
     @ticket = Ticket.new
     @menu = "menu1"
+    #@prioridades = [1 => ]
   end
 
   # GET /tickets/1/edit
@@ -27,6 +29,13 @@ class TicketsController < ApplicationController
   # POST /tickets
   # POST /tickets.json
   def create
+    
+    params[:usuario_id] = 1 #MI USUARIO
+    params[:empresa_id] = 1 #EMPRESA OXICODE
+    params[:estado] = 1 #EMPRESA OXICODE
+    params[:empleado_id] = null #SIN EMPLEADO POR DEFECTO
+    
+    
     @ticket = Ticket.new(ticket_params)
 
     respond_to do |format|
