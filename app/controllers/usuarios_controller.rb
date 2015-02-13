@@ -11,15 +11,18 @@ class UsuariosController < ApplicationController
   # GET /usuarios/1
   # GET /usuarios/1.json
   def show
+    @menu = "menu1"    
   end
 
   # GET /usuarios/new
   def new
     @usuario = Usuario.new
+    @menu = "menu1"
   end
 
   # GET /usuarios/1/edit
   def edit
+    @menu = "menu1"    
   end
 
   # POST /usuarios
