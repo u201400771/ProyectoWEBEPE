@@ -18,7 +18,6 @@ class TicketsController < ApplicationController
   def new
     @ticket = Ticket.new
     @menu = "menu1"
-    #@prioridades = [1 => ]
   end
 
   # GET /tickets/1/edit
@@ -33,8 +32,7 @@ class TicketsController < ApplicationController
     params[:usuario_id] = 1 #MI USUARIO
     params[:empresa_id] = 1 #EMPRESA OXICODE
     params[:estado] = 1 #EMPRESA OXICODE
-    params[:empleado_id] = null #SIN EMPLEADO POR DEFECTO
-    
+    params[:empleado_id] = false #SIN EMPLEADO POR DEFECTO
     
     @ticket = Ticket.new(ticket_params)
 

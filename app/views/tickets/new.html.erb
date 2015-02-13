@@ -1,6 +1,7 @@
 <h1>Nueva Incidencia</h1>
 
-<%= form_for(@ticket) do |f| %>
+<%= simple_form_for [@ticket], :html => { :class => 'form-horizontal' } do |f| %>
+
   <% if @ticket.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@ticket.errors.count, "error") %> prohibited this ticket from being saved:</h2>
@@ -13,38 +14,46 @@
     </div>
   <% end %>
   
-  <div class="field">
-    <%= f.label :area_id, "Unidad de Negocio" %><br>
-    <%= f.collection_select(:area_id, Area.all, :id, :name) %>
-  </div>
+  <div class="form-group"> 
+    <%= f.label :area_id, "Unidad de Negocio"  %>
+    <%= f.collection_select :area_id, Area.all, :id, :name, {prompt: "Seleccionar Unidad de Negocio"}, {class: "form-control"} %>
+    <%= error_span(@ticket[:area_id]) %>
+  </div>  
+    
+  <div class="form-group"> 
+    <%= f.label :categoria_id, "Categoria"  %>
+    <%= f.collection_select :categoria_id, Categoria.all, :id, :name, {prompt: "Seleccionar Categoria"}, {class: "form-control"} %>
+    <%= error_span(@ticket[:categoria_id]) %>
+  </div>  
+    
+  <div class="form-group"> 
+    <%= f.label :subcategoria_id, "Subcategoria"  %>
+    <%= f.collection_select :subcategoria_id, Subcategoria.all, :id, :name, {prompt: "Seleccionar Subcategoria"}, {class: "form-control"} %>
+    <%= error_span(@ticket[:subcategoria_id]) %>
+  </div>  
+    
+  <div class="form-group"> 
+    <label for="ticket_tipo">Tipo</label>
+    <%=
+    f.select(:tipo, options_for_select([['Consulta', 1], ['Reclamo', 2], ['Sugerencia', 3]]), {}, {class: 'form-control'} )
+    %>
+    <%= error_span(@ticket[:tipo]) %>
+  </div>  
+  <%= f.input :asunto %>
+  <%= error_span(@ticket[:asunto]) %>
   
-  <div class="field">
-    <%= f.label :categoria_id %><br>
-    <%= f.collection_select(:categoria_id, Categoria.all, :id, :name) %>
-  </div>
-  <div class="field">
-    <%= f.label :subcategoria_id %><br>
-    <%= f.collection_select(:subcategoria_id, Subcategoria.all, :id, :name) %>
-  </div>
-  
-  <div class="field">
-    <%= f.label :asunto %><br>
-    <%= f.text_field :asunto %>
-  </div>
+  <div class="form-group"> 
+  <%= 
+    f.simple_fields_for :comentarios do |com|
+      com.label :comentario
+      com.text_area :comentario, :class => 'form-control'
+    end
+  %>
+  </div>  
 
-  <div class="field">
-    <%= f.label :categoria_id %><br>
-    <%= f.collection_select(:categoria_id, Categoria.all, :id, :name) %>
-  </div>
-  <div class="field">
-    <%= f.label :subcategoria_id %><br>
-    <%= f.collection_select(:subcategoria_id, Subcategoria.all, :id, :name) %>
-  </div>
-  
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Grabar", {:class => 'btn'} %>
   </div>
 <% end %>
 
-
-<%= link_to 'Back', tickets_path %>
+<%= link_to 'Atrás', tickets_path %>

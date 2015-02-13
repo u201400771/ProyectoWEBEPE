@@ -21,6 +21,7 @@ class UsuariosController < ApplicationController
   # GET /usuarios/new
   def new
     @usuario = Usuario.new
+    #@comentario = Comentario.new
     @menu = "menu2"
   end
 

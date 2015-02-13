@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150212023417) do
+ActiveRecord::Schema.define(version: 20150213212656) do
 
   create_table "areas", force: :cascade do |t|
     t.string   "name"
@@ -40,6 +40,19 @@ ActiveRecord::Schema.define(version: 20150212023417) do
   end
 
   add_index "categorias", ["area_id"], name: "index_categorias_on_area_id"
+
+  create_table "comentarios", force: :cascade do |t|
+    t.string   "comentario"
+    t.integer  "ticket_id"
+    t.integer  "empleado_id"
+    t.integer  "usuario_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "comentarios", ["empleado_id"], name: "index_comentarios_on_empleado_id"
+  add_index "comentarios", ["ticket_id"], name: "index_comentarios_on_ticket_id"
+  add_index "comentarios", ["usuario_id"], name: "index_comentarios_on_usuario_id"
 
   create_table "empleados", force: :cascade do |t|
     t.string   "nombres"

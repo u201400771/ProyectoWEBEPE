@@ -5,20 +5,6 @@
 <h1>Mis Incidencias</h1>
 
 <table class="table table-striped">  
-  <!--<thead>
-    <tr>
-      <th>Numero de ticket</th>
-      <th>Asunto </th>
-      <th>Fecha </th>
-      <th>Unid. Negocio</th>
-      <th>Categoria</th>
-      <th>Subcategoria</th>
-      <th>Tipo</th>
-      <th>Estado</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>-->
-  
   <thead>
     <tr>
      <th>Ticket</th>
@@ -29,23 +15,22 @@
       <th>Subcategoria</th>
       <th>Tipo</th>
       <th>Estado</th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+      <th></th>
     </tr>
   </thead>
-  
-
   <tbody>
     <% @tickets.each do |ticket| %>
       <tr>
         <td><%= ticket.codigo %></td>
         <td><%= ticket.asunto %></td>
         <td><%= ticket.created_at.strftime("%d-%m-%Y") %></td>
-        <td><%= ticket.area %></td>
-        <td><%= ticket.categoria %></td>
-        <td><%= ticket.subcategoria %></td>
+        <td><%= ticket.area.name %></td>
+        <td><%= ticket.categoria.name %></td>
+        <td><%= ticket.subcategoria.name %></td>
         <td><%= ticket.tipo %></td>
         <td><%= ticket.estado %></td>
         <td>
+          <div class="btn-group">
           <%= link_to t('.edit', :default => 'Editar'),
                       edit_ticket_path(ticket), :class => 'btn btn-default btn-xs' %>
           <%= link_to t('.destroy', :default => 'Eliminar'),
@@ -53,6 +38,7 @@
                       :method => :delete,
                       :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Estás seguro?')) },
                       :class => 'btn btn-xs btn-danger' %>
+          </div>
         </td>
       </tr>
     <% end %>

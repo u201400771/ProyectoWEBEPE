@@ -64,4 +64,4 @@ rails generate scaffold usuario nombres:string apellidos:string codigo:string em
 rails generate scaffold categoria name:string area:belongs_to
 rails generate scaffold subcategoria name:string categoria:belongs_to
 rails generate scaffold ticket asunto:string urgencia:integer empresa:belongs_to usuario:belongs_to empleado:belongs_to categoria:belongs_to subcategoria:belongs_to area:belongs_to
-rails generate scaffold comentario comentario:string ticket:belongs_to empleado:belongs_to
+rails generate scaffold comentario comentario:string ticket:belongs_to empleado:belongs_to usuario:belongs_to 
