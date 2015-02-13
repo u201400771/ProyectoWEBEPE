@@ -48,5 +48,5 @@ end
 gem 'inflections'
 gem 'simple_form'
 gem "therubyracer"
-gem "less-rails"
+#gem "less-rails"
 gem "twitter-bootstrap-rails"
