@@ -1,25 +1,15 @@
-<%= form_for(@subcategoria) do |f| %>
-  <% if @subcategoria.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@subcategoria.errors.count, "error") %> prohibited this subcategoria from being saved:</h2>
 
-      <ul>
-      <% @subcategoria.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+<%= simple_form_for @subcategoria, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :name %>
+  <%= error_span(@subcategoria[:name]) %>
+  	
+  <div class="form-group">
+  <%= f.label :subcategoria_id %>
+  <%= f.collection_select :categoria_id, Categoria.all, :id, :name, {prompt: "Select a Categoria"}, {class: "form-control"} %>
+  <%= error_span(@subcategoria[:categoria_id]) %>
+  </div>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :categoria_id %><br>
-    <%= f.collection_select(:categoria_id, Categoria.all, :id, :name) %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.button :submit, :class => 'btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                subcategorias_path, :class => 'btn btn-default' %>
 <% end %>

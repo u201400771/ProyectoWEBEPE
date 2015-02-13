@@ -1,13 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>NNombre:</strong>
   <%= @subcategoria.name %>
 </p>
 
 <p>
   <strong>Categoria:</strong>
-  <%= @subcategoria.categoria %>
+  <%= @subcategoria.categoria.name %>
 </p>
 
 <%= link_to 'Edit', edit_subcategoria_path(@subcategoria) %> |

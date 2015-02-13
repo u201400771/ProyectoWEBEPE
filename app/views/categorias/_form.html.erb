@@ -1,26 +1,14 @@
-<%= form_for(@categoria) do |f| %>
-  <% if @categoria.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@categoria.errors.count, "error") %> prohibited this categoria from being saved:</h2>
-
-      <ul>
-      <% @categoria.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :area_id %><br>
-    <%= f.collection_select(:area_id, Empresa.all, :id, :name) %>
+<%= simple_form_for @categoria, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :name %>
+  <%= error_span(@categoria[:name]) %>
+  	
+  <div class="form-group">
+  <%= f.label :area_id %>
+  <%= f.collection_select :area_id, Area.all, :id, :name , {prompt: "Select a Area"}, {class: "form-control"} %>
+  <%= error_span(@categoria[:area_id]) %>
   </div>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.button :submit, :class => 'btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                categorias_path, :class => 'btn btn-default' %>
 <% end %>
