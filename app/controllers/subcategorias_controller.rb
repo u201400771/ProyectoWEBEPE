@@ -5,20 +5,24 @@ class SubcategoriasController < ApplicationController
   # GET /subcategorias.json
   def index
     @subcategorias = Subcategoria.all
+    @menu = "menu1"
   end
 
   # GET /subcategorias/1
   # GET /subcategorias/1.json
   def show
+    @menu = "menu1"  
   end
 
   # GET /subcategorias/new
   def new
     @subcategoria = Subcategoria.new
+    @menu = "menu1"
   end
 
   # GET /subcategorias/1/edit
   def edit
+    @menu = "menu1"
   end
 
   # POST /subcategorias
@@ -28,7 +32,7 @@ class SubcategoriasController < ApplicationController
 
     respond_to do |format|
       if @subcategoria.save
-        format.html { redirect_to @subcategoria, notice: 'Subcategoria was successfully created.' }
+        format.html { redirect_to @subcategoria, notice: 'Subcategoria creada satisfactoriamente' }
         format.json { render :show, status: :created, location: @subcategoria }
       else
         format.html { render :new }
@@ -42,7 +46,7 @@ class SubcategoriasController < ApplicationController
   def update
     respond_to do |format|
       if @subcategoria.update(subcategoria_params)
-        format.html { redirect_to @subcategoria, notice: 'Subcategoria was successfully updated.' }
+        format.html { redirect_to @subcategoria, notice: 'Subcategoria actualizada satisfactoriamente' }
         format.json { render :show, status: :ok, location: @subcategoria }
       else
         format.html { render :edit }
@@ -56,7 +60,7 @@ class SubcategoriasController < ApplicationController
   def destroy
     @subcategoria.destroy
     respond_to do |format|
-      format.html { redirect_to subcategorias_url, notice: 'Subcategoria was successfully destroyed.' }
+      format.html { redirect_to subcategorias_url, notice: 'Subcategoria eliminada satisfactoriamente' }
       format.json { head :no_content }
     end
   end

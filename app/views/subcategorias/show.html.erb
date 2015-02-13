@@ -1,14 +1,22 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Subcategoria -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @subcategoria.name %>
-</p>
+<dl class="dl-horizontal">
+  <dt>Categoria</dt>
+  <dd><%= @subcategoria.categoria.name %></dd>
+  <dt>SubCategoria</dt>
+  <dd><%= @subcategoria.name %></dd>
 
-<p>
-  <strong>Categoria:</strong>
-  <%= @subcategoria.categoria %>
-</p>
+</dl>
 
-<%= link_to 'Edit', edit_subcategoria_path(@subcategoria) %> |
-<%= link_to 'Back', subcategorias_path %>
+<%= link_to t('.back', :default => "Regresar"),
+              subcategorias_path, :class => 'btn btn-default'  %>
+<%= link_to t('.edit', :default => "Editar"),
+              edit_subcategoria_path(@subcategoria), :class => 'btn btn-default' %>
+<%= link_to t('.destroy', :default => "Eliminar"),
+              subcategorias_path(@subcategoria),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Esta seguro de eliminar?')) },
+              :class => 'btn btn-danger' %>

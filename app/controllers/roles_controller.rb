@@ -11,6 +11,7 @@ class RolesController < ApplicationController
   # GET /roles/1
   # GET /roles/1.json
   def show
+    @menu = "menu2"
   end
 
   # GET /roles/new
@@ -21,6 +22,7 @@ class RolesController < ApplicationController
 
   # GET /roles/1/edit
   def edit
+    @menu = "menu2"
   end
 
   # POST /roles
@@ -30,7 +32,7 @@ class RolesController < ApplicationController
 
     respond_to do |format|
       if @role.save
-        format.html { redirect_to @role, notice: 'Role was successfully created.' }
+        format.html { redirect_to @role, notice: 'Rol creado satisfactoriamente' }
         format.json { render :show, status: :created, location: @role }
       else
         format.html { render :new }
@@ -44,7 +46,7 @@ class RolesController < ApplicationController
   def update
     respond_to do |format|
       if @role.update(role_params)
-        format.html { redirect_to @role, notice: 'Role was successfully updated.' }
+        format.html { redirect_to @role, notice: 'Rol actualizado satisfactoriamente' }
         format.json { render :show, status: :ok, location: @role }
       else
         format.html { render :edit }
@@ -58,7 +60,7 @@ class RolesController < ApplicationController
   def destroy
     @role.destroy
     respond_to do |format|
-      format.html { redirect_to roles_url, notice: 'Role was successfully destroyed.' }
+      format.html { redirect_to roles_url, notice: 'Rol eliminado satisfactoriamente' }
       format.json { head :no_content }
     end
   end

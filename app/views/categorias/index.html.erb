@@ -1,13 +1,14 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Listing Categorias</h1>
-
-<table>
+<%= notice %>
+<%- model_class = Categoria -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Nombres</th>
-      <th>Area</th>
-      <th colspan="3"></th>
+      <th><%= model_class.human_attribute_name(:Categoria) %></th>
+      <th><%= model_class.human_attribute_name(:Area) %></th>
+      <th><%=t '.actions', :default => "Acción" %></th>
     </tr>
   </thead>
 
@@ -15,15 +16,24 @@
     <% @categorias.each do |categoria| %>
       <tr>
         <td><%= categoria.name %></td>
-        <td><%= categoria.area %></td>
-        <td><%= link_to 'Show', categoria %></td>
-        <td><%= link_to 'Edit', edit_categoria_path(categoria) %></td>
-        <td><%= link_to 'Destroy', categoria, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= categoria.area.name %></td>
+        <td>
+          <%= link_to t('.edit', :default => "Editar"),
+                      edit_categoria_path(categoria), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.destroy', :default => "Eliminar"),
+                      categoria_path(categoria),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Esta seguro de eliinar el registro...?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+        </td>
+
+
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Categoria', new_categoria_path %>
+<%= link_to t('.new', :default => "Nuevo"),
+            new_categoria_path,
+            :class => 'btn btn-primary' %>
