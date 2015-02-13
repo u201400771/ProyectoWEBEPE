@@ -5,24 +5,24 @@ class CategoriasController < ApplicationController
   # GET /categorias.json
   def index
     @categorias = Categoria.all
-    @menu = "menu1"
+    @menu = "menu2"
   end
 
   # GET /categorias/1
   # GET /categorias/1.json
   def show
-    @menu = "menu1"
+    @menu = "menu2"
   end
 
   # GET /categorias/new
   def new
     @categoria = Categoria.new
-    @menu = "menu1"
+    @menu = "menu2"
   end
 
   # GET /categorias/1/edit
   def edit
-    @menu = "menu1"
+    @menu = "menu2"
   end
 
   # POST /categorias
