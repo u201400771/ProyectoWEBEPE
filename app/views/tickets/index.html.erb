@@ -2,38 +2,58 @@
 
 <div id="menu"></div>
 
-<h1>Mis Tickets Pendientes</h1>
+<h1>Mis Incidencias</h1>
 
-<table>
-  <thead>
+<table class="table table-striped">  
+  <!--<thead>
     <tr>
       <th>Numero de ticket</th>
       <th>Asunto </th>
-      <th>Urgencia</th>
-      <th>Empresa</th>
-      <th>Cliente</th>
-      <th>Empleado</th>
+      <th>Fecha </th>
+      <th>Unid. Negocio</th>
       <th>Categoria</th>
       <th>Subcategoria</th>
-      <th>Area</th>
+      <th>Tipo</th>
+      <th>Estado</th>
       <th colspan="3"></th>
     </tr>
+  </thead>-->
+  
+  <thead>
+    <tr>
+     <th>Ticket</th>
+      <th>Asunto</th>
+      <th>Fecha</th>
+      <th>Unid. Negocio</th>
+      <th>Categoria</th>
+      <th>Subcategoria</th>
+      <th>Tipo</th>
+      <th>Estado</th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
   </thead>
+  
 
   <tbody>
     <% @tickets.each do |ticket| %>
       <tr>
+        <td><%= ticket.codigo %></td>
         <td><%= ticket.asunto %></td>
-        <td><%= ticket.urgencia %></td>
-        <td><%= ticket.empresa %></td>
-        <td><%= ticket.usuario %></td>
-        <td><%= ticket.empleado %></td>
+        <td><%= ticket.created_at.strftime("%d-%m-%Y") %></td>
+        <td><%= ticket.area.name %></td>
         <td><%= ticket.categoria %></td>
         <td><%= ticket.subcategoria %></td>
-        <td><%= ticket.area %></td>
-        <td><%= link_to 'Show', ticket %></td>
-        <td><%= link_to 'Edit', edit_ticket_path(ticket) %></td>
-        <td><%= link_to 'Destroy', ticket, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= ticket.tipo %></td>
+        <td><%= ticket.estado %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_ticket_path(ticket), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      ticket_path(ticket),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+        </td>
       </tr>
     <% end %>
   </tbody>
@@ -41,4 +61,8 @@
 
 <br>
 
-<%= link_to 'New Ticket', new_ticket_path %>
+<%#= link_to 'New Ticket', new_ticket_path %>
+
+<%= link_to "Nuevo Ticket",
+            new_ticket_path, 
+            :class => 'btn btn-primary' %>
