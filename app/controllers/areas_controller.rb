@@ -5,20 +5,24 @@ class AreasController < ApplicationController
   # GET /areas.json
   def index
     @areas = Area.all
+    @menu = "menu1"  
   end
 
   # GET /areas/1
   # GET /areas/1.json
   def show
+    @menu = "menu1"  
   end
 
   # GET /areas/new
   def new
     @area = Area.new
+    @menu = "menu1"  
   end
 
   # GET /areas/1/edit
   def edit
+    @menu = "menu1"  
   end
 
   # POST /areas
@@ -28,7 +32,7 @@ class AreasController < ApplicationController
 
     respond_to do |format|
       if @area.save
-        format.html { redirect_to @area, notice: 'Area was successfully created.' }
+        format.html { redirect_to @area, notice: 'Area creada satisfactoriamente' }
         format.json { render :show, status: :created, location: @area }
       else
         format.html { render :new }
@@ -42,7 +46,7 @@ class AreasController < ApplicationController
   def update
     respond_to do |format|
       if @area.update(area_params)
-        format.html { redirect_to @area, notice: 'Area was successfully updated.' }
+        format.html { redirect_to @area, notice: 'Area actualizada satisfactoriamente' }
         format.json { render :show, status: :ok, location: @area }
       else
         format.html { render :edit }
@@ -56,7 +60,7 @@ class AreasController < ApplicationController
   def destroy
     @area.destroy
     respond_to do |format|
-      format.html { redirect_to areas_url, notice: 'Area was successfully destroyed.' }
+      format.html { redirect_to areas_url, notice: 'Area eliminada satisfactoriamente' }
       format.json { head :no_content }
     end
   end

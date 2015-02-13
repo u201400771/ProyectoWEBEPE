@@ -1,15 +1,15 @@
 
 <%= simple_form_for @subcategoria, :html => { :class => 'form-horizontal' } do |f| %>
-  <%= f.input :name %>
-  <%= error_span(@subcategoria[:name]) %>
-  	
+
   <div class="form-group">
-  <%= f.label :subcategoria_id %>
+  <%= f.label :subcategoria_id, "Categoria" %>
   <%= f.collection_select :categoria_id, Categoria.all, :id, :name, {prompt: "Select a Categoria"}, {class: "form-control"} %>
   <%= error_span(@subcategoria[:categoria_id]) %>
   </div>
-
-  <%= f.button :submit, :class => 'btn-primary' %>
-  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+  <%= f.input :name, :label => "SubCategoria" %>
+  <%= error_span(@subcategoria[:name]) %>
+  
+  <%= f.submit 'Grabar', :class => 'btn btn-sm btn-primary' %>
+  <%= link_to t('.cancel', :default => "Cancelar"),
                 subcategorias_path, :class => 'btn btn-default' %>
 <% end %>

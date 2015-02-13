@@ -5,20 +5,24 @@ class CategoriasController < ApplicationController
   # GET /categorias.json
   def index
     @categorias = Categoria.all
+    @menu = "menu1"
   end
 
   # GET /categorias/1
   # GET /categorias/1.json
   def show
+    @menu = "menu1"
   end
 
   # GET /categorias/new
   def new
     @categoria = Categoria.new
+    @menu = "menu1"
   end
 
   # GET /categorias/1/edit
   def edit
+    @menu = "menu1"
   end
 
   # POST /categorias
@@ -28,7 +32,7 @@ class CategoriasController < ApplicationController
 
     respond_to do |format|
       if @categoria.save
-        format.html { redirect_to @categoria, notice: 'Categoria was successfully created.' }
+        format.html { redirect_to @categoria, notice: 'Categoria creada satisfactoriamente' }
         format.json { render :show, status: :created, location: @categoria }
       else
         format.html { render :new }
@@ -42,7 +46,7 @@ class CategoriasController < ApplicationController
   def update
     respond_to do |format|
       if @categoria.update(categoria_params)
-        format.html { redirect_to @categoria, notice: 'Categoria was successfully updated.' }
+        format.html { redirect_to @categoria, notice: 'Categoria actualizada satisfactoriamente' }
         format.json { render :show, status: :ok, location: @categoria }
       else
         format.html { render :edit }
@@ -56,7 +60,7 @@ class CategoriasController < ApplicationController
   def destroy
     @categoria.destroy
     respond_to do |format|
-      format.html { redirect_to categorias_url, notice: 'Categoria was successfully destroyed.' }
+      format.html { redirect_to categorias_url, notice: 'Categoria eliminada satisfactoriamente' }
       format.json { head :no_content }
     end
   end
