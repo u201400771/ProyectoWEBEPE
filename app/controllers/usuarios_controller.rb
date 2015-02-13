@@ -11,13 +11,13 @@ class UsuariosController < ApplicationController
   # GET /usuarios/1
   # GET /usuarios/1.json
   def show
-    @menu = "menu1"    
+    @menu = "menu2"
   end
 
   # GET /usuarios/new
   def new
     @usuario = Usuario.new
-    @menu = "menu1"
+    @menu = "menu2"
   end
 
   # GET /usuarios/1/edit
