@@ -1,7 +1,12 @@
 <h1>Nueva Area</h1>
 
-<%- model_class = Area -%>
-<div class="page-header">
-  <h1><%=t '.title', :default => [:'helpers.titles.new', 'Agregar %{model}'], :model => 'Unidad de Negocio' %></h1>
-</div>
-<%= render :partial => 'form' %>
+<%= render 'form' %>
+
+<%= link_to 'Atrás', areas_path, :class => 'btn btn-sm btn-default' %>
+
+
+<%#- model_class = Area -%>
+<!--<div class="page-header">
+  <h1><%#=t '.title', :default => [:'helpers.titles.new', 'Agregar %{model}'], :model => 'Unidad de Negocio' %></h1>
+</div>-->
+<%#= render :partial => 'form' %>

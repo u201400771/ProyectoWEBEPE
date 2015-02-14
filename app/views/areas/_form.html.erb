@@ -4,12 +4,13 @@
   <%= error_span(@area[:name]) %>
   	
   <div class="form-group">
-  <%= f.label :empresa_id %>
-  <%= f.collection_select :empresa_id, Empresa.all, :id, :name, {prompt: "Select a Empresa"}, {class: "form-control"} %>
-  <%= error_span(@area[:empresa_id]) %>
+  <%#= f.label :empresa_id %>
+  <%#= f.collection_select :empresa_id, Empresa.all, :id, :name, {prompt: "Select a Empresa"}, {class: "form-control"} %>
+  <%#= error_span(@area[:empresa_id]) %>
   </div>
 
-  <%= f.button :submit, :class => 'btn-primary' %>
-  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                areas_path, :class => 'btn btn-default' %>
+  <div class="actions">
+    <%= f.submit 'Grabar', :class => 'btn btn-sm btn-primary' %>    
+  </div>
+  
 <% end %>
