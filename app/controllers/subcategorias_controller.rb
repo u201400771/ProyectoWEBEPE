@@ -5,24 +5,24 @@ class SubcategoriasController < ApplicationController
   # GET /subcategorias.json
   def index
     @subcategorias = Subcategoria.all
-    @menu = "menu1"
+    @menu = "menu2"
   end
 
   # GET /subcategorias/1
   # GET /subcategorias/1.json
   def show
-    @menu = "menu1"  
+    @menu = "menu2"  
   end
 
   # GET /subcategorias/new
   def new
     @subcategoria = Subcategoria.new
-    @menu = "menu1"
+    @menu = "menu2"
   end
 
   # GET /subcategorias/1/edit
   def edit
-    @menu = "menu1"
+    @menu = "menu2"
   end
 
   # POST /subcategorias
