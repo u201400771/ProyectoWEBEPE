@@ -21,11 +21,11 @@
   <thead>
     <tr>
       <th></th>
-      <th><%= model_class.human_attribute_name(:codigo) %></th>
-      <th><%= model_class.human_attribute_name(:apellido_paterno) %></th>
-      <th><%= model_class.human_attribute_name(:apellido_materno) %></th>
-      <th><%= model_class.human_attribute_name(:primer_nombre) %></th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+      <th>Usuario</th>
+      <th>Apellido Paterno</th>
+      <th>Apellido Materno</th>
+      <th>Nombres</th>
+      <th>Acción</th>
     </tr>
   </thead>
   <tbody>
@@ -46,7 +46,7 @@
           <%= link_to t('.destroy', :default => 'Eliminar'),
                       usuario_path(usuario),
                       :method => :delete,
-                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Estás seguro?')) },
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Estás seguro de eliminar?')) },
                       :class => 'btn btn-xs btn-danger' %>
         </td>
         
