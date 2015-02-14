@@ -9,8 +9,6 @@
   <%#= error_span(@area[:empresa_id]) %>
   </div>
 
-  <div class="actions">
     <%= f.submit 'Grabar', :class => 'btn btn-sm btn-primary' %>    
-  </div>
-  
+    <%= link_to 'Atrás', areas_path, :class => 'btn btn-sm btn-default' %>
 <% end %>
