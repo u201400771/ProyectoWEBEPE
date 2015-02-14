@@ -31,7 +31,7 @@ class TicketsController < ApplicationController
     
     params[:usuario_id] = 1 #MI USUARIO
     params[:empresa_id] = 1 #EMPRESA OXICODE
-    params[:estado] = 1 #EMPRESA OXICODE
+    params[:estado] = 1 
     params[:empleado_id] = false #SIN EMPLEADO POR DEFECTO
     
     @ticket = Ticket.new(ticket_params)
