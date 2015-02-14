@@ -1,10 +1,10 @@
 <%= simple_form_for @categoria, :html => { :class => 'form-horizontal' } do |f| %>
   <div class="form-group">
-  <%= f.label :area_id %>
-  <%= f.collection_select :area_id, Area.all, :id, :name , {prompt: "Seleccione Area"}, {class: "form-control"} %>
+  <%= f.label :area_id, "Unidad de Negocio" %>
+  <%= f.collection_select :area_id, Area.all, :id, :name , {prompt: "Seleccione Unidad de Negocio"}, {class: "form-control"} %>
   <%= error_span(@categoria[:area_id]) %>
   </div>
-  <%= f.input :name, :label => "Categoria" %>
+  <%= f.input :name, :label => "Categoría" %>
   <%= error_span(@categoria[:name]) %>
 
   <%= f.submit 'Grabar', :class => 'btn btn-sm btn-primary' %>
