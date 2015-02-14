@@ -30,15 +30,10 @@
         <td><%= ticket.tipo %></td>
         <td><%= ticket.estado %></td>
         <td>
-          <div class="btn-group">
-          <%= link_to t('.edit', :default => 'Editar'),
-                      edit_ticket_path(ticket), :class => 'btn btn-default btn-xs' %>
-          <%= link_to t('.destroy', :default => 'Eliminar'),
-                      ticket_path(ticket),
-                      :method => :delete,
-                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Estás seguro?')) },
-                      :class => 'btn btn-xs btn-danger' %>
-          </div>
+          
+          <%= link_to "Ver",
+                      show_ticket_path(ticket), :class => 'btn btn-default btn-xs' %>
+          
         </td>
       </tr>
     <% end %>
