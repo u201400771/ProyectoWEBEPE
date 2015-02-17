@@ -3,13 +3,20 @@
   <h1>Unidad de Negocio</h1>
 </div>
 <table class="table table-striped">
-  <thead>
+  
+    <!--<tr>
+      <th><%#= model_class.human_attribute_name(:id) %></th>
+      <th><%#= model_class.human_attribute_name(:name) %></th>
+      <th><%#=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>-->
+  
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:name) %></th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+      <th>Id</th>
+      <th>Area</th>
     </tr>
   </thead>
+    
+  
   <tbody>
     <% @areas.each do |area| %>
       <tr>
