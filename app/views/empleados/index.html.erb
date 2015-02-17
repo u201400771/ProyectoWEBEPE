@@ -7,11 +7,11 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th>Nombres</th>
+      <th>User</th>
       <th>Apellidos</th>
-      <th>Código</th>
-      <th>Empresa</th>
-      <th>Area</th>
+      <th>Nombres</th>
+      <th>Und.Negocio</th>
+      <th>Email</th>
       <th><%=t '.actions', :default => "Acción" %></th>
     </tr>
   </thead>
@@ -21,11 +21,11 @@
     <% @empleados.each do |empleado| %>
     
       <tr>
-        <td><%= empleado.nombres %></td>
+        <td><%= empleado.username %></td>
         <td><%= empleado.apellidos %></td>
-        <td><%= empleado.codigo %></td>
-        <td><%= empleado.empresa.name %></td>
+        <td><%= empleado.nombres %></td>
         <td><%= empleado.area.name %></td>
+        <td><%= empleado.email %></td>
         <td>
           <%= link_to t('.edit', :default => "Editar"),
                       edit_empleado_path(empleado), :class => 'btn btn-default btn-xs' %>
@@ -41,5 +41,6 @@
 </table>
 
 <br>
-
-<%= link_to 'New Empleado', new_empleado_path %>
+<%= link_to t('.new', :default => "Nuevo"),
+            new_empleado_path,
+            :class => 'btn btn-primary' %>
