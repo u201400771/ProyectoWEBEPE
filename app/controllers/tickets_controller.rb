@@ -6,9 +6,23 @@ class TicketsController < ApplicationController
   def index
     @tickets = Ticket.all
     @menu = "menu1"
+    
+  #  respond_to do |format|
+  #    format.html # index_mis_incidencias_abiertas.html.erb
+  #    format.xml  { render :xml => @tickets }
+    
   end
 
-  # GET /tickets/1
+  #def index_mis_incidencias_abiertas 
+    #@tickets = Ticket.all
+    #@menu = "menu1"
+    
+    #render layout: "index_mis_incidencias_abiertas"
+    #@tickets = Ticket.all
+    #@menu = "menu1"
+  #end
+
+    # GET /tickets/1
   # GET /tickets/1.json
   def show
     @menu = "menu1"

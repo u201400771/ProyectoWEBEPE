@@ -5,20 +5,24 @@ class EmpleadosController < ApplicationController
   # GET /empleados.json
   def index
     @empleados = Empleado.all
+    @menu = "menu2"
   end
 
   # GET /empleados/1
   # GET /empleados/1.json
   def show
+    @menu = "menu2"
   end
 
   # GET /empleados/new
   def new
     @empleado = Empleado.new
+    @menu = "menu2"
   end
 
   # GET /empleados/1/edit
   def edit
+    @menu = "menu2"
   end
 
   # POST /empleados

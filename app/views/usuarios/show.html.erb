@@ -1,41 +1,32 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Código:</strong>
-  <%= @usuario.codigo %>
-</p>
-
-<p>
-  <strong>Apellidos Paterno:</strong>
-  <%= @usuario.apellido_paterno %>
-</p>
-
-
-<p>
-  <strong>Apellidos Materno:</strong>
-  <%= @usuario.apellido_materno %>
-</p>
-
-<p>
-  <strong>Primer Nombre:</strong>
-  <%= @usuario.primer_nombre %>
-</p>
-
-<p>
-  <strong>Segundo Nombre:</strong>
-  <%= @usuario.segundo_nombre %>
-</p>
-
-<p>
-  <strong>Rol:</strong>
-  <%= @usuario.role.name %>
-</p>
-
-
-<%#= link_to 'Editar', edit_usuario_path(@usuario) %> 
-<%#= link_to 'Atrás', usuarios_path %>
-
-<div class="btn-group" role="group" aria-label="...">
-  <button type="button" class="btn btn-default"><%= link_to 'Editar', edit_usuario_path(@usuario) %> </button>
-  <button type="button" class="btn btn-default"><%= link_to 'Atrás', usuarios_path %></button>
+<%- model_class = Usuario -%>
+<div class="page-header">
+  <h1>Editar Usuarios</h1>
 </div>
+
+<dl class="dl-horizontal">
+  <dt>Usuario</dt>
+  <dd><%= @usuario.codigo %></dd>
+  <dt>Apellido Paterno</dt>
+  <dd><%= @usuario.apellido_paterno %></dd>
+  <dt>Apellido Materno</dt>
+  <dd><%= @usuario.apellido_materno %></dd>
+  <dt>Primer Nombre</dt>
+  <dd><%= @usuario.primer_nombre %></dd>
+  <dt>Segundo Nombre</dt>
+  <dd><%= @usuario.segundo_nombre %></dd>
+  <dt>Rol</dt>
+  <dd><%= @usuario.role.name %></dd>
+
+</dl>
+
+
+
+<%= link_to t('.back', :default => "Regresar"),
+              usuarios_path, :class => 'btn btn-default'  %>
+<%= link_to t('.edit', :default => "Editar"),
+              edit_usuario_path(@usuario), :class => 'btn btn-default' %>
+<%= link_to t('.destroy', :default => "Eliminar"),
+              usuarios_path(@usuario),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Esta seguro de eliminar?')) },
+              :class => 'btn btn-danger' %>

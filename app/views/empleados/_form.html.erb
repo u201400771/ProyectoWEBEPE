@@ -1,37 +1,21 @@
-<%= form_for(@empleado) do |f| %>
-  <% if @empleado.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@empleado.errors.count, "error") %> prohibited this empleado from being saved:</h2>
+<%= simple_form_for @empleado, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="form-group">
+  <%= f.label :empresa_id, "Empresa" %>
+  <%= f.collection_select :empresa_id, Empresa.all, :id, :name , {prompt: "Seleccione Empresa"}, {class: "form-control"} %>
+  <%= error_span(@empleado[:empresa_id]) %>
+  <%= f.label :area_id, "Area" %>
+  <%= f.collection_select :area_id, Area.all, :id, :name , {prompt: "Seleccione Area"}, {class: "form-control"} %>
+  <%= error_span(@empleado[:area_id]) %>
 
-      <ul>
-      <% @empleado.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  </div>
+  <%= f.input :nombres, :label => "Nombres" %>
+  <%= error_span(@empleado[:nombres]) %>
+  <%= f.input :apellidos, :label => "Apellidos" %>
+  <%= error_span(@empleado[:apellidos]) %>
+  <%= f.input :codigo, :label => "Código" %>
+  <%= error_span(@empleado[:codigo]) %>
 
-  <div class="field">
-    <%= f.label :nombres %><br>
-    <%= f.text_field :nombres %>
-  </div>
-  <div class="field">
-    <%= f.label :apellidos %><br>
-    <%= f.text_field :apellidos %>
-  </div>
-  <div class="field">
-    <%= f.label :codigo %><br>
-    <%= f.text_field :codigo %>
-  </div>
-  <div class="field">
-    <%= f.label :empresa_id %><br>
-    <%= f.collection_select(:empresa_id, Empresa.all, :id, :name) %>
-  </div>
-  <div class="field">
-    <%= f.label :area_id %><br>
-    <%= f.collection_select(:area_id, Area.all, :id, :name) %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.submit 'Grabar', :class => 'btn btn-sm btn-primary' %>
+  <%= link_to t('.cancel', :default => "Cancelar"),
+                categorias_path, :class => 'btn btn-default' %>
 <% end %>
