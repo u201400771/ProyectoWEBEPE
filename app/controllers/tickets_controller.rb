@@ -29,13 +29,13 @@ class TicketsController < ApplicationController
   # POST /tickets.json
   def create
     
-    params[:usuario_id] = 1 #MI USUARIO
-    params[:empresa_id] = 1 #EMPRESA OXICODE
-    params[:estado] = 1 
-    params[:empleado_id] = false #SIN EMPLEADO POR DEFECTO
-    
+    params[:ticket][:usuario_id] = 1 #MI USUARIO
+    params[:ticket][:empresa_id] = 1 #EMPRESA OXICODE
+    params[:ticket][:estado] = 1 
+    params[:ticket][:empleado_id] = false #SIN EMPLEADO POR DEFECTO
+    params[:ticket][:codigo] = Ticket.where(empresa_id: 1).count + 1
     @ticket = Ticket.new(ticket_params)
-
+    
     respond_to do |format|
       if @ticket.save
         format.html { redirect_to @ticket, notice: 'Ticket was successfully created.' }
@@ -79,6 +79,6 @@ class TicketsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def ticket_params
-      params.require(:ticket).permit(:codigo, :asunto, :urgencia, :empresa_id, :cliente_id, :empleado_id, :categoria_id, :subcategoria_id, :area_id, :tipo, :estado)
+      params.require(:ticket).permit(:codigo, :asunto, :urgencia, :empresa_id, :cliente_id, :empleado_id, :categoria_id, :subcategoria_id, :area_id, :tipo, :estado, :usuario_id, :empresa_id)
     end
 end
