@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150217055431) do
+ActiveRecord::Schema.define(version: 20150217072317) do
 
   create_table "areas", force: :cascade do |t|
     t.string   "name"
@@ -57,11 +57,13 @@ ActiveRecord::Schema.define(version: 20150217055431) do
   create_table "empleados", force: :cascade do |t|
     t.string   "nombres"
     t.string   "apellidos"
-    t.string   "codigo"
+    t.string   "username"
     t.integer  "empresa_id"
     t.integer  "area_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "email"
+    t.integer  "role_id"
   end
 
   add_index "empleados", ["area_id"], name: "index_empleados_on_area_id"

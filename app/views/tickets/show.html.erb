@@ -22,17 +22,18 @@
 
 <p>
   <strong>Empleado:</strong>
-  <%= @ticket.empleado %>
+  <%= 
+  @ticket.empleado.nombre %> <%= @ticket.empleado.apellidos %>
 </p>
 
 <p>
   <strong>Categoria:</strong>
-  <%= @ticket.categoria %>
+  <%= @ticket.categoria.name %>
 </p>
 
 <p>
   <strong>Subcategoria:</strong>
-  <%= @ticket.subcategoria %>
+  <%= @ticket.subcategoria.name %>
 </p>
 
 <p>
