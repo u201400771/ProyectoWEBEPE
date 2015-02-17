@@ -42,7 +42,8 @@ group :development, :test do
   gem 'spring'
 end
 group :development, :test do
-    gem 'railroady'
+  gem 'railroady'
+  gem "better_errors"
 end
 gem 'inflections'
 gem 'simple_form'
