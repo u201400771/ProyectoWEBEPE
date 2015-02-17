@@ -47,7 +47,7 @@ class TicketsController < ApplicationController
     params[:ticket][:empresa_id] = 1 #EMPRESA OXICODE
     params[:ticket][:prioridad] = 2
     params[:ticket][:estado] = 1
-    #params[:ticket][:empleado_id] = 
+    params[:ticket][:empleado_id] = Empleado.where(role_id: params[:ticket][:role_id], area_id: params[:ticket][:area_id]).first.ids
     params[:ticket][:codigo] = Ticket.where(empresa_id: 1).count + 1
     @ticket = Ticket.new(ticket_params)
     
