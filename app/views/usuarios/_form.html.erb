@@ -36,7 +36,9 @@
   <%= error_span(@usuario[:role_id]) %>
   </div>  
 
-  <%= f.submit 'Grabar', :class => 'btn btn-sm btn-primary' %>
-  <%= link_to t('.cancel', :default => "Cancelar"),
-                usuarios_path, :class => 'btn btn-default' %>
+  <div class="actions">
+    <%= f.submit 'Grabar', :class => 'btn btn-sm btn-primary' %>   
+    <%= link_to 'Atrás', usuarios_path, :class => 'btn btn-sm btn-default' %>
+  </div>
+
 <% end %>
