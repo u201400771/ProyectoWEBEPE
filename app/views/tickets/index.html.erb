@@ -28,7 +28,7 @@
         <td><%= ticket.categoria.name %></td>
         <td><%= ticket.subcategoria.name %></td>
         <td><%= ticket.tipo %></td>
-        <td><%= ticket.estado %></td>
+        <td><%= estado(ticket.estado) %></td>
         <td>
           
           <%= link_to "Ver", ticket_path(ticket.id), :class => 'btn btn-default btn-xs' %>
