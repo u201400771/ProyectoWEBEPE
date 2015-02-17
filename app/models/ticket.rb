@@ -8,4 +8,6 @@ class Ticket < ActiveRecord::Base
   belongs_to :categoria
   belongs_to :subcategoria
   belongs_to :area
+  
+  
 end
