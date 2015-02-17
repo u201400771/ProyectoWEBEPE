@@ -1,21 +1,20 @@
 <%= simple_form_for @empleado, :html => { :class => 'form-horizontal' } do |f| %>
   <div class="form-group">
-  <%= f.label :empresa_id, "Empresa" %>
-  <%= f.collection_select :empresa_id, Empresa.all, :id, :name , {prompt: "Seleccione Empresa"}, {class: "form-control"} %>
-  <%= error_span(@empleado[:empresa_id]) %>
-  <%= f.label :area_id, "Area" %>
-  <%= f.collection_select :area_id, Area.all, :id, :name , {prompt: "Seleccione Area"}, {class: "form-control"} %>
-  <%= error_span(@empleado[:area_id]) %>
-
-  </div>
-  <%= f.input :nombres, :label => "Nombres" %>
-  <%= error_span(@empleado[:nombres]) %>
+  <%= f.input :username, :label => "User" %>
+  <%= error_span(@empleado[:username]) %>
   <%= f.input :apellidos, :label => "Apellidos" %>
   <%= error_span(@empleado[:apellidos]) %>
-  <%= f.input :codigo, :label => "Código" %>
-  <%= error_span(@empleado[:codigo]) %>
+  <%= f.input :nombres, :label => "Nombres" %>
+  <%= error_span(@empleado[:nombres]) %>
+  <%= f.label :area_id, "Und.Negocio" %>
+  <%= f.collection_select :area_id, Area.all, :id, :name , {prompt: "Seleccione Unidad de Negocio"}, {class: "form-control"} %>
+  <%= error_span(@empleado[:area_id]) %>
+  <%= f.input :email, :label => "E-mail" %>
+  <%= error_span(@empleado[:email]) %>
+
+  </div>
 
   <%= f.submit 'Grabar', :class => 'btn btn-sm btn-primary' %>
   <%= link_to t('.cancel', :default => "Cancelar"),
-                categorias_path, :class => 'btn btn-default' %>
+                empleados_path, :class => 'btn btn-default' %>
 <% end %>
