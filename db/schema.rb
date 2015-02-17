@@ -110,9 +110,9 @@ ActiveRecord::Schema.define(version: 20150217055431) do
     t.integer  "area_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-    t.decimal  "tipo"
+    t.integer  "tipo"
     t.string   "codigo"
-    t.decimal  "estado"
+    t.integer  "estado"
   end
 
   add_index "tickets", ["area_id"], name: "index_tickets_on_area_id"
