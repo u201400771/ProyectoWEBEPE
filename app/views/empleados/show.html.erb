@@ -1,29 +1,27 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Empleado -%>
+<div class="page-header">
+  <h1>Empleados</h1>
+</div>
 
-<p>
-  <strong>Nombres:</strong>
-  <%= @empleado.nombres %>
-</p>
+<dl class="dl-horizontal">
+  <dt>Nombres</dt>
+  <dd><%= @empleado.nombres %></dd>
+  <dt>Apellidos</dt>
+  <dd><%= @empleado.apellidos %></dd>
+  <dt>Código</dt>
+  <dd><%= @empleado.codigo %></dd>
+  <dt>Empresa</dt>
+  <dd><%= @empleado.empresa %></dd>
+  <dt>Area</dt>
+  <dd><%= @empleado.area %></dd>
 
-<p>
-  <strong>Apellidos:</strong>
-  <%= @empleado.apellidos %>
-</p>
-
-<p>
-  <strong>Codigo:</strong>
-  <%= @empleado.codigo %>
-</p>
-
-<p>
-  <strong>Empresa:</strong>
-  <%= @empleado.empresa %>
-</p>
-
-<p>
-  <strong>Area:</strong>
-  <%= @empleado.area %>
-</p>
-
-<%= link_to 'Edit', edit_empleado_path(@empleado) %> |
-<%= link_to 'Back', empleados_path %>
+</dl>
+<%= link_to t('.back', :default => "Regresar"),
+              empleados_path, :class => 'btn btn-default'  %>
+<%= link_to t('.edit', :default => "Editar"),
+              edit_empleado_path(@empleado), :class => 'btn btn-default' %>
+<%= link_to t('.destroy', :default => "Eliminar"),
+              empleados_path(@empleado),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Esta seguro de eliminar?')) },
+              :class => 'btn btn-danger' %>

@@ -1,30 +1,40 @@
-<p id="notice"><%= notice %></p>
+<%= notice %>
+<%- model_class = Empleado -%>
+<div class="page-header">
+  <h1>Empleados</h1>
+</div>
 
-<h1>Listing Empleados</h1>
-
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
       <th>Nombres</th>
       <th>Apellidos</th>
-      <th>Codigo</th>
+      <th>Código</th>
       <th>Empresa</th>
       <th>Area</th>
-      <th colspan="3"></th>
+      <th><%=t '.actions', :default => "Acción" %></th>
     </tr>
   </thead>
-
+  
+  
   <tbody>
     <% @empleados.each do |empleado| %>
+    
       <tr>
         <td><%= empleado.nombres %></td>
         <td><%= empleado.apellidos %></td>
         <td><%= empleado.codigo %></td>
-        <td><%= empleado.empresa %></td>
-        <td><%= empleado.area %></td>
-        <td><%= link_to 'Show', empleado %></td>
-        <td><%= link_to 'Edit', edit_empleado_path(empleado) %></td>
-        <td><%= link_to 'Destroy', empleado, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= empleado.empresa.name %></td>
+        <td><%= empleado.area.name %></td>
+        <td>
+          <%= link_to t('.edit', :default => "Editar"),
+                      edit_empleado_path(empleado), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.destroy', :default => "Eliminar"),
+                      empleado_path(empleado),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Esta seguro de eliinar el registro...?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+        </td>
       </tr>
     <% end %>
   </tbody>
