@@ -22,8 +22,7 @@
 
 <p>
   <strong>Empleado:</strong>
-  <%= 
-  @ticket.empleado.nombre %> <%= @ticket.empleado.apellidos %>
+  <%= @ticket.empleado.nombres %> <%= @ticket.empleado.apellidos %> 
 </p>
 
 <p>
@@ -38,8 +37,9 @@
 
 <p>
   <strong>Area:</strong>
-  <%= @ticket.area %>
+  <%= @ticket.area.name %>
 </p>
 
 <%= link_to 'Edit', edit_ticket_path(@ticket) %> |
 <%= link_to 'Back', tickets_path %>
+<%= debug @comentarios %>
