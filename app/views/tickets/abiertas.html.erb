@@ -1,0 +1,76 @@
+<p id="notice"><%= notice %></p>
+
+<div id="menu"></div>
+
+<h1>Incidencias Abiertas</h1>
+
+<table class="table table-striped">  
+  <thead>
+    <tr>
+      <th>Ticket</th>
+      <th>Asunto</th>
+      <th>Fecha</th>
+      <th>Unid. Negocio</th>
+      <th>Categoría</th>
+      <th>Subcategoría</th>
+      <th>Tipo</th>
+      <th>Estado</th>
+      <th>Sel.</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    
+    <% @tickets.each do |ticket| %>
+      <tr>
+        <td><%= ticket.id %></td>
+        <td><%= ticket.asunto %></td>
+        <td><%= ticket.created_at.strftime("%d-%m-%Y") %></td>
+        <td><%= ticket.area.name %></td>
+        <td><%= ticket.categoria.name %></td>
+        <td><%= ticket.subcategoria.name %></td>
+        <td><%= ticket.tipo %></td>
+        <td><%= ticket.estado %></td>
+        <td><input name="cbxseleccion" type="checkbox" /></td>
+      </tr>
+    <% end %>
+  </tbody>
+  
+</table>
+
+<br>
+
+<%#= link_to "Asignar", profile_path(@profile.id, param1: 'value1', param2: 'value2'), method: :post %>
+<%#= link_to "Asignar", new_ticket_path, :class => 'btn btn-primary' %>
+<%= link_to "Cancelar", new_ticket_path, :class => 'btn btn-primary' %>
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+  Asignar
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <%= simple_form_for [@ticket], :url => '/tickets/asignar', :method => :post, :html => { :class => 'form-horizontal' } do |f| %>        
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Selección de usuarios</h4>
+      </div>
+      <div class="modal-body">
+        
+        <%= f.label :empleado_id, "Asignar a"  %>
+        <%= f.collection_select :empleado_id, Empleado.all, :id, :apellidos, {prompt: "Seleccionar Usuario"}, {class: "form-control"} %>
+        <%= error_span(@ticket[:empleado_id]) %>
+       
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary">Grabar</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+      </div>
+       <% end %>
+    </div>
+  </div>
+</div>

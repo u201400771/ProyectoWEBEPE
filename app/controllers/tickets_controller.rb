@@ -6,21 +6,13 @@ class TicketsController < ApplicationController
   def index
     @tickets = Ticket.all
     @menu = "menu1"
-    
-  #  respond_to do |format|
-  #    format.html # index_mis_incidencias_abiertas.html.erb
-  #    format.xml  { render :xml => @tickets }
-    
   end
 
-  #def index_mis_incidencias_abiertas 
-    #@tickets = Ticket.all
-    #@menu = "menu1"
-    
-    #render layout: "index_mis_incidencias_abiertas"
-    #@tickets = Ticket.all
-    #@menu = "menu1"
-  #end
+  def abiertas 
+    @tickets = Ticket.all
+    @ticket = Ticket.new
+    @menu = "menu2"
+  end
 
     # GET /tickets/1
   # GET /tickets/1.json
@@ -40,7 +32,13 @@ class TicketsController < ApplicationController
   def edit
     @menu = "menu1"
   end
-
+  
+  def asignar
+    #params[:ticket][:estado] = 2
+    #debugger params
+    #render nothing: true
+  end
+    
   # POST /tickets
   # POST /tickets.json
   def create

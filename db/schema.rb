@@ -16,8 +16,9 @@ ActiveRecord::Schema.define(version: 20150219013948) do
   create_table "areas", force: :cascade do |t|
     t.string   "name"
     t.integer  "empresa_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "empleado_id"
   end
 
   add_index "areas", ["empresa_id"], name: "index_areas_on_empresa_id"

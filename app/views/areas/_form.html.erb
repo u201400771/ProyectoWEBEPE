@@ -1,8 +1,11 @@
 
 <%= simple_form_for @area, :html => { :class => 'form-horizontal' } do |f| %>
-  <%= f.input :name %>
-  <%= error_span(@area[:name]) %>
-  	
+  <%= f.input :name, :label => "Unidad de Negocio" %>
+  
+  <%#= f.label :empresa_id, "Empleado" %>
+  <%#= f.collection_select :empleado_id, @empleados, :id, :apellidos , {prompt: "Seleccione Empleado"}, {class: "form-control"} %>
+  <%#= error_span(@area[:empleado_id]) %>
+
   <div class="form-group">
   <%#= f.label :empresa_id %>
   <%#= f.collection_select :empresa_id, Empresa.all, :id, :name, {prompt: "Select a Empresa"}, {class: "form-control"} %>

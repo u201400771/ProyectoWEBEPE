@@ -1,6 +1,6 @@
 <%= simple_form_for @empleado, :html => { :class => 'form-horizontal' } do |f| %>
   <div class="form-group">
-  <%= f.input :username, :label => "User" %>
+  <%= f.input :username, :label => "Usuario" %>
   <%= error_span(@empleado[:username]) %>
   <%= f.input :apellidos, :label => "Apellidos" %>
   <%= error_span(@empleado[:apellidos]) %>
@@ -11,11 +11,12 @@
   <%= f.label :area_id, "Und. Negocio" %>
   <%= f.collection_select :area_id, Area.all, :id, :name , {prompt: "Seleccione Unidad de Negocio"}, {class: "form-control"} %>
   <%= error_span(@empleado[:area_id]) %>
+
   </div>
   
   <div class="form-group"> 
   <%= f.label :role_id, "Role" %>
-  <%= f.collection_select :role_id, Role.all, :id, :name , {prompt: "Seleccione Role"}, {class: "form-control"} %>
+  <%= f.collection_select :role_id, Role.all, :id, :name , {prompt: "Seleccione Rol"}, {class: "form-control"} %>
   <%= error_span(@empleado[:role_id]) %>
   </div>
   

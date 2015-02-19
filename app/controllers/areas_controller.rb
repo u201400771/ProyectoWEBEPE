@@ -17,6 +17,10 @@ class AreasController < ApplicationController
   # GET /areas/new
   def new
     @area = Area.new
+    @empleados = Empleado.where(:role_id => 2)
+    
+    #Users.where(:name => "Test_name").limit(10)
+    
     @menu = "menu2"
   end
 

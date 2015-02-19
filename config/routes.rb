@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   resources :subcategorias
 
   resources :categorias
-
+  
+  get 'tickets/abiertas' => 'tickets#abiertas'
+  post 'tickets/asignar' => 'tickets#asignar'
   resources :tickets
 
   resources :subcategoria
@@ -22,7 +24,8 @@ Rails.application.routes.draw do
   resources :empresas
 
   resources :roles
-
+  
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -30,7 +33,6 @@ Rails.application.routes.draw do
    root 'usuarios#login'
 
   # Example of regular route:
-  #   get 'products/:id' => 'catalog#view'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
