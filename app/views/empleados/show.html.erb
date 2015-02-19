@@ -4,17 +4,18 @@
 </div>
 
 <dl class="dl-horizontal">
-  <dt>Nombres</dt>
-  <dd><%= @empleado.nombres %></dd>
+  <dt>Usuario</dt>
+  <dd><%= @empleado.username %></dd>
   <dt>Apellidos</dt>
   <dd><%= @empleado.apellidos %></dd>
-  <dt>Código</dt>
-  <dd><%= @empleado.codigo %></dd>
-  <dt>Empresa</dt>
-  <dd><%= @empleado.empresa %></dd>
-  <dt>Area</dt>
-  <dd><%= @empleado.area %></dd>
-
+  <dt>Nombres</dt>
+  <dd><%= @empleado.nombres %></dd>
+  <dt>Und.Negocio</dt>
+  <dd><%= @empleado.area.name %></dd>
+  <dt>Role</dt>
+  <dd><%= @empleado.role.name %></dd>
+  <dt>Email</dt>
+  <dd><%= @empleado.email %></dd>
 </dl>
 <%= link_to t('.back', :default => "Regresar"),
               empleados_path, :class => 'btn btn-default'  %>

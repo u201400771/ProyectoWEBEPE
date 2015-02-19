@@ -58,11 +58,13 @@ ActiveRecord::Schema.define(version: 20150219010805) do
   create_table "empleados", force: :cascade do |t|
     t.string   "nombres"
     t.string   "apellidos"
-    t.string   "codigo"
+    t.string   "username"
     t.integer  "empresa_id"
     t.integer  "area_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "email"
+    t.integer  "role_id"
   end
 
   add_index "empleados", ["area_id"], name: "index_empleados_on_area_id"
