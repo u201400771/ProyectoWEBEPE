@@ -39,7 +39,18 @@
   <strong>Area:</strong>
   <%= @ticket.area.name %>
 </p>
+<%= debug(@comentarios) %>
 
+    <% @comentarios.each do |comentario| %>
+    <%= debug(comentario) %>
+      <tr>
+        <td><%= comentario.comentario %></td>
+        <td></td>
+        <td></td>
+        
+      </tr>
+    <% end %>
+    
 <%= link_to 'Edit', edit_ticket_path(@ticket) %> |
 <%= link_to 'Back', tickets_path %>
-<%= debug @comentarios %>
+

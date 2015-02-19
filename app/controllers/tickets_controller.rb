@@ -18,8 +18,9 @@ class TicketsController < ApplicationController
   # GET /tickets/1.json
   def show
     @menu = "menu1"
-      @ticket = Ticket.find(params[:id])
-      @comentarios = Comentario.find_by(ticket_id: @ticket.codigo)    
+    @ticket = Ticket.find(params[:id])
+    @comentarios = Comentario.where(ticket_id: @ticket.id).select('*').all.joins('LEFT JOIN "empleados" ON "empleados"."id" = "comentarios"."empleado_id" LEFT JOIN "usuarios" ON "usuarios"."id" = "comentarios"."usuario_id"')
+    #@comentarios = Comentario.where(ticket_id: @ticket.id).all.joins(:empleado, :usuario)
   end
 
   # GET /tickets/new

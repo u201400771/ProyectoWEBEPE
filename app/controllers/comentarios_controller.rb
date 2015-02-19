@@ -21,6 +21,7 @@ class ComentariosController < ApplicationController
 
   # GET /comentarios/1/edit
   def edit
+    @menu = "menu1"
   end
 
   # POST /comentarios
