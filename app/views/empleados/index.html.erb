@@ -7,11 +7,12 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th>User</th>
+      <th>Usuario</th>
       <th>Apellidos</th>
       <th>Nombres</th>
       <th>Und.Negocio</th>
-      <th>Email</th>
+      <th>Rol</th>
+      <th>E-mail</th>
       <th><%=t '.actions', :default => "Acción" %></th>
     </tr>
   </thead>
@@ -25,6 +26,7 @@
         <td><%= empleado.apellidos %></td>
         <td><%= empleado.nombres %></td>
         <td><%= empleado.area.name %></td>
+        <td><%= empleado.role.name %></td>
         <td><%= empleado.email %></td>
         <td>
           <%= link_to t('.edit', :default => "Editar"),
