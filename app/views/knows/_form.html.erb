@@ -1,6 +1,16 @@
 <%= simple_form_for @know, :html => { :class => 'form-horizontal' } do |f| %>
   <%= f.input :name, :label => "Titulo" %>
   <%= error_span(@know[:name]) %>
+
+  <%= f.label :area_id, "Und.Negocio" %>
+  <%= f.collection_select :area_id, Area.all, :id, :name, {prompt: "Select a Unidad de Negocio"}, {class: "form-control"} %>
+  <%= error_span(@know[:area_id]) %>
+
+  <%= f.label :categoria_id, "Categoría" %>
+  <%= f.collection_select :categoria_id, Categoria.all, :id, :name, {prompt: "Select a Categoria"}, {class: "form-control"} %>
+  <%= error_span(@know[:categoria_id]) %>
+
+
   <%= f.input :descripcion, :label => "Detalle" %>
   <%= error_span(@know[:descripcion]) %>
 

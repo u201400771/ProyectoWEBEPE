@@ -73,6 +73,6 @@ class KnowsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def know_params
-      params.require(:know).permit(:name, :descripcion)
+      params.require(:know).permit(:name, :descripcion, :area_id, :categoria_id, :subcategoria_id)
     end
 end

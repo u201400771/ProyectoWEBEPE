@@ -6,6 +6,8 @@
   <thead>
     <tr>
       <th>Titulo</th>
+      <th>Und.Negocio</th>
+      <th>Categoría</th>
       <th>Detalle</th>
       <th><%=t '.actions', :default => "Acción" %></th>
     </tr>
@@ -15,6 +17,8 @@
     <% @knows.each do |know| %>
       <tr>
         <td><%= know.name %></td>
+        <td><%= know.area.name %></td>
+        <td><%= know.categoria.name %></td>
         <td><%= know.descripcion %></td>
         <td>
           <%= link_to t('.edit', :default => "Editar"),
